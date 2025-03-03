@@ -1,0 +1,611 @@
+{
+    "last_node_id": 12,
+    "last_link_id": 20,
+    "nodes": [
+        {
+            "id": 6,
+            "type": "Echo_Upscaleloader",
+            "pos": [
+                3537,
+                -1932
+            ],
+            "size": [
+                315,
+                202
+            ],
+            "flags": {},
+            "order": 0,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "ECHO_U_MODEL",
+                    "links": [
+                        9
+                    ],
+                    "slot_index": 0,
+                    "label": "model"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Echo_Upscaleloader"
+            },
+            "widgets_values": [
+                "RealESRGAN_x2plus.pth",
+                "facelib\\detection_mobilenet0.25_Final.pth",
+                "realesrgan",
+                false,
+                false,
+                400,
+                2
+            ]
+        },
+        {
+            "id": 2,
+            "type": "Echo_Sampler",
+            "pos": [
+                3153,
+                -1652
+            ],
+            "size": [
+                315,
+                522
+            ],
+            "flags": {},
+            "order": 4,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 18,
+                    "label": "image"
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "link": 19,
+                    "label": "audio"
+                },
+                {
+                    "name": "model",
+                    "type": "MODEL_PIPE_E",
+                    "link": 1,
+                    "label": "model"
+                },
+                {
+                    "name": "face_detector",
+                    "type": "MODEL_FACE_E",
+                    "link": 2,
+                    "label": "face_detector"
+                },
+                {
+                    "name": "visualizer",
+                    "type": "MODEL_VISUAL_E",
+                    "link": 3,
+                    "shape": 7,
+                    "label": "visualizer"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        10,
+                        16
+                    ],
+                    "slot_index": 0,
+                    "label": "image"
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "links": [],
+                    "slot_index": 1,
+                    "label": "audio"
+                },
+                {
+                    "name": "frame_rate",
+                    "type": "FLOAT",
+                    "links": [
+                        12
+                    ],
+                    "slot_index": 2,
+                    "label": "frame_rate"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Echo_Sampler"
+            },
+            "widgets_values": [
+                "none",
+                "none",
+                0,
+                2.5,
+                30,
+                24,
+                16000,
+                0.1,
+                0.5,
+                12,
+                3,
+                true,
+                144,
+                512,
+                512,
+                false,
+                false
+            ]
+        },
+        {
+            "id": 7,
+            "type": "Echo_VideoUpscale",
+            "pos": [
+                3884,
+                -1938
+            ],
+            "size": [
+                315,
+                242
+            ],
+            "flags": {},
+            "order": 6,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "model",
+                    "type": "ECHO_U_MODEL",
+                    "link": 9,
+                    "label": "model"
+                },
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "link": 10,
+                    "shape": 7,
+                    "label": "image"
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "link": 20,
+                    "shape": 7,
+                    "label": "audio"
+                },
+                {
+                    "name": "frame_rate",
+                    "type": "FLOAT",
+                    "link": 12,
+                    "widget": {
+                        "name": "frame_rate"
+                    },
+                    "shape": 7,
+                    "label": "frame_rate"
+                },
+                {
+                    "name": "path",
+                    "type": "STRING",
+                    "link": null,
+                    "widget": {
+                        "name": "path"
+                    },
+                    "shape": 7,
+                    "label": "path"
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "image",
+                    "type": "IMAGE",
+                    "links": [
+                        17
+                    ],
+                    "slot_index": 0,
+                    "label": "image"
+                },
+                {
+                    "name": "audio",
+                    "type": "AUDIO",
+                    "links": [],
+                    "slot_index": 1,
+                    "label": "audio"
+                },
+                {
+                    "name": "frame_rate",
+                    "type": "FLOAT",
+                    "links": [],
+                    "slot_index": 2,
+                    "label": "frame_rate"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Echo_VideoUpscale"
+            },
+            "widgets_values": [
+                "none",
+                0.5,
+                false,
+                false,
+                false,
+                0.5,
+                ""
+            ]
+        },
+        {
+            "id": 11,
+            "type": "LoadImage",
+            "pos": [
+                2813,
+                -1964
+            ],
+            "size": [
+                315,
+                314
+            ],
+            "flags": {},
+            "order": 1,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "IMAGE",
+                    "type": "IMAGE",
+                    "links": [
+                        18
+                    ],
+                    "label": "图像"
+                },
+                {
+                    "name": "MASK",
+                    "type": "MASK",
+                    "links": null,
+                    "label": "遮罩"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadImage"
+            },
+            "widgets_values": [
+                "001.MP3",
+                "image"
+            ]
+        },
+        {
+            "id": 12,
+            "type": "LoadAudio",
+            "pos": [
+                3179,
+                -1896
+            ],
+            "size": [
+                315,
+                124
+            ],
+            "flags": {},
+            "order": 2,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "AUDIO",
+                    "type": "AUDIO",
+                    "links": [
+                        19,
+                        20
+                    ],
+                    "label": "音频"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "LoadAudio"
+            },
+            "widgets_values": [
+                "001.MP3",
+                null,
+                ""
+            ]
+        },
+        {
+            "id": 1,
+            "type": "Echo_LoadModel",
+            "pos": [
+                2808,
+                -1557
+            ],
+            "size": [
+                315,
+                218
+            ],
+            "flags": {},
+            "order": 3,
+            "mode": 0,
+            "inputs": [],
+            "outputs": [
+                {
+                    "name": "model",
+                    "type": "MODEL_PIPE_E",
+                    "links": [
+                        1
+                    ],
+                    "slot_index": 0,
+                    "label": "model"
+                },
+                {
+                    "name": "face_detector",
+                    "type": "MODEL_FACE_E",
+                    "links": [
+                        2
+                    ],
+                    "label": "face_detector"
+                },
+                {
+                    "name": "visualizer",
+                    "type": "MODEL_VISUAL_E",
+                    "links": [
+                        3
+                    ],
+                    "label": "visualizer"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "Echo_LoadModel"
+            },
+            "widgets_values": [
+                "stabilityai/sd-vae-ft-mse",
+                true,
+                "audio_drived",
+                false,
+                false,
+                false
+            ]
+        },
+        {
+            "id": 10,
+            "type": "VHS_VideoCombine",
+            "pos": [
+                3860,
+                -1640
+            ],
+            "size": [
+                320,
+                310
+            ],
+            "flags": {},
+            "order": 7,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 17,
+                    "label": "图像"
+                },
+                {
+                    "name": "audio",
+                    "type": "VHS_AUDIO",
+                    "link": null,
+                    "shape": 7,
+                    "label": "音频"
+                },
+                {
+                    "name": "meta_batch",
+                    "type": "VHS_BatchManager",
+                    "link": null,
+                    "shape": 7,
+                    "label": "批次管理"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Filenames",
+                    "type": "VHS_FILENAMES",
+                    "links": null,
+                    "label": "文件名"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_VideoCombine"
+            },
+            "widgets_values": {
+                "frame_rate": 24,
+                "loop_count": 0,
+                "filename_prefix": "AnimateDiff",
+                "format": "video/h264-mp4",
+                "pix_fmt": "yuv420p",
+                "crf": 19,
+                "save_metadata": true,
+                "pingpong": false,
+                "save_output": true,
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {}
+                }
+            }
+        },
+        {
+            "id": 9,
+            "type": "VHS_VideoCombine",
+            "pos": [
+                3500,
+                -1630
+            ],
+            "size": [
+                320,
+                310
+            ],
+            "flags": {},
+            "order": 5,
+            "mode": 0,
+            "inputs": [
+                {
+                    "name": "images",
+                    "type": "IMAGE",
+                    "link": 16,
+                    "label": "图像"
+                },
+                {
+                    "name": "audio",
+                    "type": "VHS_AUDIO",
+                    "link": null,
+                    "shape": 7,
+                    "label": "音频"
+                },
+                {
+                    "name": "meta_batch",
+                    "type": "VHS_BatchManager",
+                    "link": null,
+                    "shape": 7,
+                    "label": "批次管理"
+                },
+                {
+                    "name": "vae",
+                    "type": "VAE",
+                    "link": null
+                }
+            ],
+            "outputs": [
+                {
+                    "name": "Filenames",
+                    "type": "VHS_FILENAMES",
+                    "links": null,
+                    "label": "文件名"
+                }
+            ],
+            "properties": {
+                "Node name for S&R": "VHS_VideoCombine"
+            },
+            "widgets_values": {
+                "frame_rate": 24,
+                "loop_count": 0,
+                "filename_prefix": "AnimateDiff",
+                "format": "video/h264-mp4",
+                "pix_fmt": "yuv420p",
+                "crf": 19,
+                "save_metadata": true,
+                "pingpong": false,
+                "save_output": true,
+                "videopreview": {
+                    "hidden": false,
+                    "paused": false,
+                    "params": {}
+                }
+            }
+        }
+    ],
+    "links": [
+        [
+            1,
+            1,
+            0,
+            2,
+            2,
+            "MODEL"
+        ],
+        [
+            2,
+            1,
+            1,
+            2,
+            3,
+            "MODEL"
+        ],
+        [
+            3,
+            1,
+            2,
+            2,
+            4,
+            "MODEL"
+        ],
+        [
+            9,
+            6,
+            0,
+            7,
+            0,
+            "ECHO_U_MODEL"
+        ],
+        [
+            10,
+            2,
+            0,
+            7,
+            1,
+            "IMAGE"
+        ],
+        [
+            12,
+            2,
+            2,
+            7,
+            3,
+            "FLOAT"
+        ],
+        [
+            16,
+            2,
+            0,
+            9,
+            0,
+            "IMAGE"
+        ],
+        [
+            17,
+            7,
+            0,
+            10,
+            0,
+            "IMAGE"
+        ],
+        [
+            18,
+            11,
+            0,
+            2,
+            0,
+            "IMAGE"
+        ],
+        [
+            19,
+            12,
+            0,
+            2,
+            1,
+            "AUDIO"
+        ],
+        [
+            20,
+            12,
+            0,
+            7,
+            2,
+            "AUDIO"
+        ]
+    ],
+    "groups": [],
+    "config": {},
+    "extra": {
+        "ds": {
+            "scale": 1.1671841070450022,
+            "offset": [
+                -2315.46224139042,
+                2219.120219989827
+            ]
+        },
+        "workspace_info": {
+            "id": "7vMwtM7wQ7QMYkcwwUyyp",
+            "saveLock": false,
+            "cloudID": null,
+            "coverMediaPath": null
+        }
+    },
+    "version": 0.4
+}
